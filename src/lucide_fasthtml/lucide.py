@@ -6,7 +6,7 @@ def Lucide(icon, size='24', color=None, stroke_width='2', absolute_sw=False, **k
     icon_content, is_cdn = get_icon(icon)
     sw = stroke_width
     if absolute_sw:
-        sw = f'{float(stroke_width) * 24 / float(size)}'
+        sw = f'{round(float(stroke_width) * 24 / float(size), 2)}'
 
     
     svg_attrs = {'width': size,'height': size,'xmlns': "http://www.w3.org/2000/svg",'viewBox': '0 0 24 24','fill': kwargs.pop('fill', 'none'),'stroke': kwargs.pop('stroke', 'currentColor') if not color else color,'stroke-width': sw,'stroke-linecap': kwargs.pop('strokeLinecap', 'round'),'stroke-linejoin': kwargs.pop('strokeLinejoin', 'round'),'cls': f"lucide lucide-{icon} {kwargs.pop('cls', '')}"
