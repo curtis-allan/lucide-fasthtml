@@ -25,10 +25,7 @@ def extract_path_content(svg_content):
         'rect': ['x', 'y', 'width', 'height', 'rx', 'ry'],
         'circle': ['cx', 'cy', 'r']
     }
-    try:
-        soup = BeautifulSoup(svg_content, 'lxml-xml')
-    except FeatureNotFound:
-        soup = BeautifulSoup(svg_content, 'xml')
+    soup = BeautifulSoup(svg_content)
     sanitized_tags = []
     for tag in soup.find_all(safe_tags):
         new_tag = soup.new_tag(tag.name)
